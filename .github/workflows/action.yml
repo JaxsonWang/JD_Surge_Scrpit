@@ -19,6 +19,8 @@ jobs:
           node-version: 10.x
       # npm install
       - name: 同步任务
+        env:
+          REPO_NAME: ${{ github.repository }}
         run: |
           npm install
           node index.js

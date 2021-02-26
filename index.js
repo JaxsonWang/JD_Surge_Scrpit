@@ -4,6 +4,8 @@ const path = require('path')
 
 const scripts = []
 let sgmodule = ''
+const repoName = process.env.REPO_NAME
+const repoRaw = `https://raw.githubusercontent.com/${repoName}/main/scripts/`
 
 const regex = /([\s\S]*)\s(https:\/\/\S*.js),\stag=(\S*),[\s\S]*/
 
@@ -39,7 +41,7 @@ async function initConfig() {
       })
       // 合并
       const reg = regex.exec(task)
-      sgmodule += `${reg[3]} = type=cron,cronexp=${reg[1]},wake-system=1,timeout=3600,script-path=${reg[2]}\n`
+      sgmodule += `${reg[3]} = type=cron,cronexp=${reg[1]},wake-system=1,timeout=3600,script-path=${repoRaw}${script}\n`
     }
   }
 
