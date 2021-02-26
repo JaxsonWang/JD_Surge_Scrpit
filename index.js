@@ -2,9 +2,9 @@ const axios = require('axios')
 const fs = require('fs')
 const path = require('path')
 
-var scripts = []
+const scripts = []
 
-var gallyJson = [{
+const gallyJson = [{
     json: "https://jdsharedresourcescdn.azureedge.net/jdresource/lxk0301_gallery.json",
     cdn: "https://jdsharedresourcescdn.azureedge.net/jdresource"
 }]
@@ -99,7 +99,7 @@ async function downFile(url) {
 
 function fileName(url) {
     if (url) {
-        var pos = url.lastIndexOf("/")
+        let pos = url.lastIndexOf("/")
         if (pos === -1) {
             pos = url.lastIndexOf("\\")
         }
